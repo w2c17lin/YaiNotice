@@ -11,10 +11,12 @@
         WARNING = 2, // 警告
         ERROR = 3; // 错误
 
+    const SPEED = 180; // 动画速度
+
     var options = {
         title: "消息",
         type: INFO,
-        timeout: 2500,
+        timeout: 3000,
         content: undefined,
         callback: undefined
     }
@@ -45,7 +47,7 @@
         });
         $notice.animate({
             right: RIGHT
-        });
+        }, SPEED);
         $notice.find(".yai-notice-close").on("click", () => remove(notice)); // 绑定移除按钮事件
         if (notice.timeout > 0) setTimeout(() => remove(notice), notice.timeout); // 设置取消定时
     }
@@ -57,7 +59,7 @@
         move(); // 滑动下面的提示
         $notice.animate({
             right: RIGHT_BEGIN
-        }, () => $notice.remove()); // 移除dom
+        }, SPEED, () => $notice.remove()); // 移除dom
     }
 
     function move() {
@@ -66,7 +68,7 @@
             yai_notice[i].top = yai_notice[postion] ? yai_notice[postion].top + yai_notice[postion].height : TOP_BEGIN;
             $(".yai-notice[data-id='" + yai_notice[i].id + "']").animate({
                 top: yai_notice[i].top
-            });
+            }, SPEED);
         }
     }
 
