@@ -1,3 +1,8 @@
+/**
+ * @author yanji_
+ * 
+ * 仿照iview制作的提示框
+ */
 ;
 ! function () {
     "use strict";
