@@ -7,7 +7,7 @@
     const POSTION = {
         RIGHT: 24,
         RIGHT_BEGIN: -360,
-        TOP_BEGIN: 256
+        TOP_BEGIN: 218
     } // 初始位置
 
     const TYPE = {
