@@ -57,6 +57,7 @@
     }
 
     function remove(notice) {
+        if (yai_notice.indexOf(notice) < 0) return;
         var $notice = $(".yai-notice[data-id='" + notice.id + "']");
         yai_notice.splice(yai_notice.indexOf(notice), 1); // 移除对象
         if (notice.callback) notice.callback(); // 回调函数
