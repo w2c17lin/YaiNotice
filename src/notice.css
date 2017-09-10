@@ -1,62 +1,62 @@
 .yai-notice {
-    top: 218px;
-    right: -360px;
-    width: 335px;
-    position: fixed;
-    z-index: 19950310;
+  top: 218px;
+  right: -360px;
+  width: 335px;
+  position: fixed;
+  z-index: 19950310;
 }
 
 .yai-notice-container {
-    margin-bottom: 10px;
-    padding: 16px;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
-    background: #fff;
-    line-height: 1;
+  margin-bottom: 10px;
+  padding: 16px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+  background: #fff;
+  line-height: 1;
 }
 
 .yai-notice-title {
-    font-size: 16px;
-    color: #1c2438;
-    padding-right: 10px;
-    font-weight: 700;
-    margin-bottom: 8px;
+  font-size: 16px;
+  color: #1c2438;
+  padding-right: 10px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .yai-notice-content {
-    color: #495060;
-    line-height: 1.5;
-    word-wrap: break-word;
+  color: #495060;
+  line-height: 1.5;
+  word-wrap: break-word;
 }
 
 .yai-notice-info {
-    border-left: 4px solid #2d8cf0;
+  border-left: 4px solid #2d8cf0;
 }
 
 .yai-notice-success {
-    border-left: 4px solid #19be6b;
+  border-left: 4px solid #19be6b;
 }
 
 .yai-notice-warning {
-    border-left: 4px solid #ffad33;
+  border-left: 4px solid #ffad33;
 }
 
 .yai-notice-danger {
-    border-left: 4px solid #f16543;
+  border-left: 4px solid #f16543;
 }
 
 .yai-notice-close {
-    position: absolute;
-    right: 16px;
-    top: 10px;
-    color: #999;
-    outline: 0;
-    cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  color: #999;
+  outline: 0;
+  cursor: pointer;
 }
 
 .yai-notice-close:hover {
-    color: #495060;
+  color: #495060;
 }
 
 .yai-notice-close::before {
-    content: "\2716";
+  content: "\2716";
 }
