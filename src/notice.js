@@ -32,7 +32,7 @@
 
     var yai_notice = [];
 
-    function show(notice) {
+    function show (notice) {
         var type_class = "yai-notice-info";
         if (notice.type == TYPE.SUCCESS) type_class = "yai-notice-success";
         else if (notice.type == TYPE.WARNING) type_class = "yai-notice-warning";
@@ -61,7 +61,7 @@
         if (notice.timeout > 0) setTimeout(() => remove(notice), notice.timeout); // 设置取消定时
     }
 
-    function remove(notice) {
+    function remove (notice) {
         if (yai_notice.indexOf(notice) < 0) return;
         var $notice = $(".yai-notice[data-id='" + notice.id + "']");
         yai_notice.splice(yai_notice.indexOf(notice), 1); // 移除对象
@@ -72,7 +72,7 @@
         }, SPEED, () => $notice.remove()); // 移除dom
     }
 
-    function move() {
+    function move () {
         for (var i = 0; i < yai_notice.length; i++) {
             var postion = i - 1;
             yai_notice[i].top = yai_notice[postion] ? yai_notice[postion].top + yai_notice[postion].height : POSTION.TOP_BEGIN;
@@ -82,7 +82,7 @@
         }
     }
 
-    var YaiNotice = function () {};
+    var YaiNotice = function () { };
 
     YaiNotice.prototype.open = function (option) {
         var notice = $.extend({
