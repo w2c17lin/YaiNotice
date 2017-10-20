@@ -5,9 +5,9 @@
  */
 ;
 ! function () {
-    "use strict";
+    "use strict"
 
-    const SPEED = 180; // 动画速度
+    const SPEED = 180 // 动画速度
 
     const POSTION = {
         RIGHT: 24,
@@ -30,13 +30,13 @@
         callback: undefined
     }
 
-    var yai_notice = [];
+    var yai_notice = []
 
     function show (notice) {
-        var type_class = "yai-notice-info";
-        if (notice.type == TYPE.SUCCESS) type_class = "yai-notice-success";
-        else if (notice.type == TYPE.WARNING) type_class = "yai-notice-warning";
-        else if (notice.type == TYPE.ERROR) type_class = "yai-notice-danger";
+        var type_class = "yai-notice-info"
+        if (notice.type == TYPE.SUCCESS) type_class = "yai-notice-success"
+        else if (notice.type == TYPE.WARNING) type_class = "yai-notice-warning"
+        else if (notice.type == TYPE.ERROR) type_class = "yai-notice-danger"
         var html =
             `<div class="yai-notice" data-id="${notice.id}">
                 <div class="yai-notice-container ${type_class}">
@@ -44,51 +44,49 @@
                     <div class="yai-notice-content">${notice.content ? notice.content : ""}</div>
                 </div>
                 <span class="yai-notice-close"></span>
-            </div>`;
-        $("body").append(html);
-        var $notice = $(".yai-notice[data-id='" + notice.id + "']");
-        var postion = yai_notice.length - 1;
-        notice.height = $notice.height(); // 获取当前notice高度
-        notice.top = yai_notice[postion] ? yai_notice[postion].top + yai_notice[postion].height : POSTION.TOP_BEGIN; // 获取当前notice的top
-        yai_notice.push(notice);
-        $notice.css({
-            top: notice.top
-        });
+            </div>`
+        $("body").append(html)
+        var $notice = $(".yai-notice[data-id='" + notice.id + "']")
+        var postion = yai_notice.length - 1
+        notice.height = $notice.height() // 获取当前notice高度
+        notice.top = yai_notice[postion] ? yai_notice[postion].top + yai_notice[postion].height : POSTION.TOP_BEGIN // 获取当前notice的top
+        yai_notice.push(notice)
+        $notice.css({ top: notice.top })
         $notice.animate({
             right: POSTION.RIGHT
-        }, SPEED);
-        $notice.find(".yai-notice-close").on("click", () => remove(notice)); // 绑定移除按钮事件
-        if (notice.timeout > 0) setTimeout(() => remove(notice), notice.timeout); // 设置取消定时
+        }, SPEED)
+        $notice.find(".yai-notice-close").on("click", () => remove(notice)) // 绑定移除按钮事件
+        if (notice.timeout > 0) setTimeout(() => remove(notice), notice.timeout) // 设置取消定时
     }
 
     function remove (notice) {
-        if (yai_notice.indexOf(notice) < 0) return;
+        if (yai_notice.indexOf(notice) < 0) return
         var $notice = $(".yai-notice[data-id='" + notice.id + "']");
-        yai_notice.splice(yai_notice.indexOf(notice), 1); // 移除对象
-        if (notice.callback) notice.callback(); // 回调函数
-        move(); // 滑动下面的提示
+        yai_notice.splice(yai_notice.indexOf(notice), 1) // 移除对象
+        if (notice.callback) notice.callback() // 回调函数
+        move() // 滑动下面的提示
         $notice.animate({
             right: POSTION.RIGHT_BEGIN
-        }, SPEED, () => $notice.remove()); // 移除dom
+        }, SPEED, () => $notice.remove()) // 移除dom
     }
 
     function move () {
         for (var i = 0; i < yai_notice.length; i++) {
-            var postion = i - 1;
+            var postion = i - 1
             yai_notice[i].top = yai_notice[postion] ? yai_notice[postion].top + yai_notice[postion].height : POSTION.TOP_BEGIN;
             $(".yai-notice[data-id='" + yai_notice[i].id + "']").animate({
                 top: yai_notice[i].top
-            }, SPEED);
+            }, SPEED)
         }
     }
 
-    var YaiNotice = function () { };
+    var YaiNotice = function () { }
 
     YaiNotice.prototype.open = function (option) {
         var notice = $.extend({
             id: new Date().getTime() // id是当前时间
-        }, options, option);
-        show(notice);
+        }, options, option)
+        show(notice)
     }
 
     YaiNotice.prototype.info = function (title, content) {
@@ -96,7 +94,7 @@
             type: TYPE.INFO,
             title: title,
             content: content
-        });
+        })
     }
 
     YaiNotice.prototype.success = function (title, content) {
@@ -104,7 +102,7 @@
             type: TYPE.SUCCESS,
             title: title,
             content: content
-        });
+        })
     }
 
     YaiNotice.prototype.warning = function (title, content) {
@@ -112,7 +110,7 @@
             type: TYPE.WARNING,
             title: title,
             content: content
-        });
+        })
     }
 
     YaiNotice.prototype.error = function (title, content) {
@@ -120,8 +118,8 @@
             type: TYPE.ERROR,
             title: title,
             content: content
-        });
+        })
     }
 
-    window.YaiNotice = new YaiNotice();
+    window.YaiNotice = new YaiNotice()
 }()
